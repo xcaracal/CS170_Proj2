@@ -9,7 +9,7 @@ def InitHeap(data, num_instances, num_features, current_set_of_features):
     my_queue = []
     for i in range(1, num_features + 1):
         if (i not in current_set_of_features):
-            accuracy = my_nn.OneOutCrossValidation(data, num_instances, \
+            accuracy = my_nn.one_out_cross_validation(data, num_instances, \
                 current_set_of_features, i)
             feature_pair = (1 - accuracy, i)
             heapq.heappush(my_queue, feature_pair)
@@ -18,7 +18,7 @@ def InitHeap(data, num_instances, num_features, current_set_of_features):
 def SampleHeap(data, num_instances, num_features, current_set_of_features, my_queue):
     top = heapq.heappop(my_queue)
     feature_to_add = top[1]
-    accuracy = my_nn.OneOutCrossValidation(data, num_instances, \
+    accuracy = my_nn.one_out_cross_validation(data, num_instances, \
         current_set_of_features, feature_to_add)
     return feature_to_add, accuracy
 

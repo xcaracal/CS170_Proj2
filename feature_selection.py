@@ -91,7 +91,7 @@ def main():
                     \r""")
     num_features = len(instances[0]) - 1
     print("\t*** Normalizing data... ***")
-    normalized_instances = my_norm.NormalizeData(instances, num_instances, num_features)
+    normalized_instances = my_norm.normalize_data(instances, num_instances, num_features)
     print("There are %d features with %d instances." % (num_features, num_instances))
     
     if (alg == "FS"):
