@@ -1,6 +1,9 @@
 import math
 
 def nearest_neighbor(instances, num_instances, one_out, features):
+    """
+    This function finds the nearest neighbor of the given instance with the given features using Euclidean distance.
+    """
     nearest_neighbor_index = -1
     nearest_neighbor_distance = float('inf')
     num_features = len(features)
@@ -18,11 +21,14 @@ def nearest_neighbor(instances, num_instances, one_out, features):
     return nearest_neighbor_index
 
 def check_classification(instances, nearest_neighbor_index, one_out):
+    """
+    This function checks if the classification of the nearest neighbor of the given instance is the same as the instance's classification.
+    """
     return instances[nearest_neighbor_index][0] == instances[one_out][0]
 
 def one_out_cross_validation(instances, num_instances, current_features, my_feature):
     """
-    Pass in positive to add, negative to remove, 0 for no feature
+    This function performs one-out cross validation using the given features with the given feature added, removed, or not changed.
     """
     if my_feature > 0:
         list_features = list(current_features) + [my_feature]
@@ -41,5 +47,5 @@ def one_out_cross_validation(instances, num_instances, current_features, my_feat
         num_correct += correct_classification
     
     accuracy = num_correct / num_instances
-    print(f"Testing features: {list_features} with accuracy {accuracy:.2f}")
+    print(f"Testing these features: {list_features} accuracy is: {accuracy:.2f}")
     return accuracy

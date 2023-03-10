@@ -3,6 +3,9 @@ from typing import List
 
 
 def calc_mean(instances: List[List[float]], num_instances: int, num_features: int) -> List[float]:
+    """
+    This function calculates the means of the given instances for each feature.
+    """
     means = []
     for i in range(1, num_features + 1):
         feature_sum = sum(row[i] for row in instances)
@@ -11,6 +14,9 @@ def calc_mean(instances: List[List[float]], num_instances: int, num_features: in
 
 
 def calc_std(instances: List[List[float]], num_instances: int, num_features: int, means: List[float]) -> List[float]:
+    """
+    This function calculates the standard deviations of the given instances for each feature using the given means.
+    """
     stds = []
     for i in range(1, num_features + 1):
         variance_sum = sum(pow((row[i] - means[i-1]), 2) for row in instances)
@@ -19,6 +25,9 @@ def calc_std(instances: List[List[float]], num_instances: int, num_features: int
 
 
 def normalize_data(instances: List[List[float]], num_instances: int, num_features: int) -> List[List[float]]:
+    """
+    This function normalizes the given instances using mean normalization (subtracting the mean and dividing by the standard deviation).
+    """
     normalized_instances = [list(instance) for instance in instances]
     means = calc_mean(instances, num_instances, num_features)
     stds = calc_std(instances, num_instances, num_features, means)
