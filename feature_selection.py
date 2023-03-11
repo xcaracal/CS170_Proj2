@@ -98,12 +98,12 @@ def main():
     instances = load_data(file, num_instances)
 
     alg = ""
-    while (alg != "FS" and alg != "BE" and alg != "CS"):
+    while (alg != "FS" and alg != "BE" and alg != "C"):
         # Prompt the user to choose the algorithm to use
         alg = input("""Which Algorithmn do you want to use?:
-                       FS : Forward Selection
-                       BE : Backward Elimination
-                       CS : Custom Search
+                       FS : Forward Select
+                       BE : Backward Elim
+                       C : Custom
                     \r""")
     num_features = len(instances[0]) - 1
     print("\t****Normalizing****")
