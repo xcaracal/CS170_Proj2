@@ -5,6 +5,8 @@ import random
 import normalize as my_norm
 import nearest_neighbor as my_nn
 import my_AGS
+from my_data import load_data
+from plot import plot_features
 
 def load_data(file_name, num_instances):
     """
@@ -86,6 +88,8 @@ def backward_elimination(data, number_of_instances, number_of_features):
     print(f"Best set of features are: {curr_set_features} accuracy is now: {best_accuracy}")
 
 def main():
+    data = load_data("my_dataset.txt", 100)
+    plot_features(data)
     """
     This function is the main entry point of the program and prompts the user to enter the file name and algorithm to use.
     """
